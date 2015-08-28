@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KPK Events</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function intervalFunc() {
+                var current = $('.slider img:visible');
+                var next = current.next().length ? current.next() : $('.slider img:eq(0)');
+                current.fadeOut(1000);
+                next.fadeIn(1000);
+            }
+
+            var interval=setInterval(intervalFunc,2000);
+        });
+    </script>
+</head>
+<body>
+<div id="banner-text">
+    KPK
+</div>
+<div class="menu" id="home-menu">
+    <ul id="home-menu-list">
+        <li class="menu-li" id="menu-home">Home</li>
+        <li class="menu-li" id="menu-services">Services</li>
+        <li class="menu-li" id="menu-events">Events</li>
+        <li class="menu-li" id="menu-gallery">Gallery</li>
+        <li class="menu-li" id="menu-contact">Contact</li>
+    </ul>
+</div>
+<div id="home-box" class="box">
+    <div class="slider" id="home-slider">
+        <img class="home-slider-img" src="images/logo.jpg" rel="Home 1" />
+        <img class="home-slider-img" src="images/Home_1.jpg" rel="Home 1" />
+        <img class="home-slider-img" src="images/Home_2.jpg" rel="Home 1" />
+        <img class="home-slider-img" src="images/Home_3.jpg" rel="Home 1" />
+        <img class="home-slider-img" src="images/Home_5.jpg" rel="Home 1" />
+        <img class="home-slider-img" src="images/Home_6.jpg" rel="Home 1" />
+    </div>
+</div>
+</body>
+</html>
