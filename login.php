@@ -20,4 +20,6 @@ else{
     $row=$result->fetch_assoc();
     $_SESSION['loggedIn']=true;
     $_SESSION['userId']=$row['id'];
+    header("Location: manage.php");
+    die();
 }

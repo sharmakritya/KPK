@@ -3,9 +3,7 @@
 body{
 	background-color:rgb(205,205,205);
 }
-table{
-	border:1px solid black; 
-}
+
 #main{
 	float:left;
 }
@@ -13,5 +11,17 @@ table{
 	float:right;
 	display:block;
 }
-tr:nth-child(even) {background: #CCC}
-tr:nth-child(odd) {background: #FFF}
+.main-table tr:nth-child(even) {background: #CCC}
+.main-table tr:nth-child(odd) {background: #FFF}
+#newEvent{
+	cursor: pointer;
+	padding: 10px;
+	background-color: black;
+	color: white;
+	border-radius: 8px;
+}
+#newEventCont{
+	margin-top: 5px;
+	padding: 5px;
+	display: none;
+}
