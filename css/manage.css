@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/* CSS Document */
+body{
+	background-color:rgb(205,205,205);
+}
+table{
+	border:1px solid black; 
+}
+#main{
+	float:left;
+}
+#side{
+	float:right;
+	display:block;
+}
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}

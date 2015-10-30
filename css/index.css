@@ -1,0 +1,177 @@
+@keyframes rotation-logo{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left: 0;
+}
+#home-box{
+    top: 0;
+}
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(197, 183, 183, 0.5);
+	z-index: 1;
+}
+#home-menu-list{
+    padding: 0;
+}
+.menu-li{
+    padding: 10px;
+    cursor: pointer;
+    display: inline;
+    margin: 10px;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    border-radius: 8px;
+}
+.menu-li:hover,.selected{
+    border-bottom: solid black 5px;
+    background-color: rgba(197, 183, 183, 0.65);
+    color: white;
+}
+
+#banner-text{
+    position: fixed;
+    top: 0.5%;
+    left: 0.5%;
+    z-index: 2;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    animation-name: rotation-logo;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.slider{
+    width: 100%;
+    height: 100%;
+}
+.home-slider-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.home-slider-img:not(:first-of-type){
+    display: none;
+}
+#login-box{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    background-color: #555555;
+    opacity: 0.8;
+    border-radius: 10px;
+		z-index:2;
+}
+#login-box input{
+    margin: 20px;
+    width: 300px;
+    height: 2em;
+    opacity: 1;
+    text-align: center;
+    font-weight: bold;
+}
+#service-box{
+    top:100%;
+    padding-top: 5%;
+    text-align: center;
+    box-sizing: border-box;
+    padding-left: 5%;
+    background-color: #555555;
+    color: #000000;
+}
+.service-boxes{
+    float: left;
+    display: block;
+    width: 25%;
+    margin: 20px;
+    border: solid 5px #212121;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 30px;
+    background-color: #ffffff;
+}
+.service-boxes img{
+    width: 128px;
+    height: 128px;
+}
+.service-boxes p,.service-boxes h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#register-box{
+    top: 200%;
+    padding-top: 5%;
+    box-sizing: border-box;
+}
+#reg-div{
+    background-color:#1E90FF;
+    width:40%;
+    padding: 2%;
+    height:auto;
+    text-align: center;
+    border-radius: 10px;
+	float:left;
+	margin-left:5%;
+}
+#reg-div h1{
+    text-align: center;
+}
+#reg-div table tr td{
+    font-size: 1.15em;
+    margin: 1em;
+}
+#reg-div form input,#reg-div form select{
+    width:400px;
+    height: 37px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    margin:1px;
+}
+#contact-box{
+	top: 300%;
+	padding-top: 5%;
+	box-sizing: border-box;
+}
+#contact-form{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+#contact-details{
+    text-align: center;
+}
+.txtbox{
+    width: 90%;
+    padding: 1.5%;
+    font-size: 1.2em;
+    margin-top: 0.35%;
+    border-radius: 5px;
+    font-family:"Lucida Sans Unicode";
+    font-weight:normal;
+    border: solid 1px #B4D0F3;
+}
+#contact-address,#contact-number{
+    text-align: justify;
+    font-size: 1.2em;
+}
