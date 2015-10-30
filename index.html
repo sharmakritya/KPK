@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>KPK Events</title>
-    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -15,6 +15,29 @@
             }
 
             var interval=setInterval(intervalFunc,2000);
+
+            $("#menu-home").click(function(){
+                $('html, body').animate({scrollTop:0},1000);
+                $(".menu-li").removeClass("selected");
+                $("#menu-home").addClass("selected");
+            });
+
+            $("#menu-services").click(function(){
+                $('html, body').animate({scrollTop:$(window).height()},1000);
+                $(".menu-li").removeClass("selected");
+                $("#menu-services").addClass("selected");
+            });
+            $("#menu-register").click(function(){
+                $('html, body').animate({scrollTop:$(window).height()*2},1000);
+                $(".menu-li").removeClass("selected");
+                $("#menu-register").addClass("selected");
+            });
+            $("#menu-contact").click(function(){
+                $('html, body').animate({scrollTop:$(window).height()*3},1000);
+                $(".menu-li").removeClass("selected");
+                $("#menu-contact").addClass("selected");
+            });
+
         });
     </script>
 </head>
@@ -28,6 +51,7 @@
         <li class="menu-li" id="menu-services">Services</li>
         <li class="menu-li" id="menu-events">Events</li>
         <li class="menu-li" id="menu-gallery">Gallery</li>
+        <li class="menu-li" id="menu-register">Members</li>
         <li class="menu-li" id="menu-contact">Contact</li>
     </ul>
 </div>
@@ -39,6 +63,103 @@
         <img class="home-slider-img" src="images/Home_3.jpg" rel="Home 1" />
         <img class="home-slider-img" src="images/Home_5.jpg" rel="Home 1" />
         <img class="home-slider-img" src="images/Home_6.jpg" rel="Home 1" />
+    </div>
+    </div>
+</div>
+<div id="service-box" class="box">
+    <h1>We provide all the tools you need to make your event a success.<br>
+    Eventbrite enables people all over the world to post, promote, and track any event.</h1>
+    <div class="service-boxes" id="box1">
+        <img src="images/clock.png">
+        <h3>Post an event in minutes</h3>
+        <p>It's simple to organize festivals, performances, fundraisers, conferences, parties, retreats, workshops, and events of all kinds!</p>
+    </div>
+    <div class="service-boxes" id="box2">
+        <img src="images/settings.png">
+    <h3>Customize your event page</h3>
+    <p>Have control over the look and feel of your event page. You can also offer multiple ticket types, discount codes, merchandise and more.</p>
+    </div>
+    <div class="service-boxes" id="box3">
+        <img src="images/ticket.png">
+    <h3>Manage your event</h3>
+    <p>Sell tickets on-site, check in attendees, take feedback and help your customers.</p>
+    <br/>
+    </div>
+</div>
+  <div id="register-box" class="box">
+    <div id="reg-div">
+    
+    	<h1>Registration Form</h1>
+        <form method="post" action="reg.php">
+        <table align="center">
+        	<tr>
+            <td><label for="firstName">First Name:</label></td>
+            <td><input type="text" name="firstName" id="firstName" required/></td>
+            </tr>
+          	<tr>
+            <td><label for="lastName">Last Name:</label></td>
+            <td><input type="text" name="lastName" id="lastName" required/></td>
+            </tr>
+             <tr>
+            <td><label for="email">Email ID:</label></td>
+            <td><input type="email" name="email" id="email" required/></td>
+            </tr>
+            <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="text" name="password" id="password" required/></td>
+            </tr>
+            <tr>
+            <td><label for="confirm">Confirm Password:</label></td>
+            <td><input type="text" name="confirm" id="confirm" required/></td>
+            </tr>
+        </table>
+        	<input type="submit" value="Register"/>
+        </form>
+    </div>
+    <div id="reg-div">
+    	<h1>Login</h1>
+        <form method="post" action="login.php">
+        <table align="center">
+           <tr>
+            <td><label for="email">Email ID:</label></td>
+            <td><input type="email" name="email" id="email" required/></td>
+            </tr>
+            <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="text" name="password" id="password" required/></td>
+            </tr>
+        </table>
+        	<input type="submit" value="Login"/>
+        </form>
+    </div>
+    </div>
+<div id="contact-box" class="box">
+    <div id="contact-form">
+        <h2>Contact Form</h2>
+        <form method="post">
+            <input type="text" class="txtbox" name="name" placeholder="Full Name" required autofocus><br>
+            <input type="email" class="txtbox" name="email" placeholder="Email Address" required autofocus pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Valid Emails Only"><br>
+            <input class="txtbox" name="num" placeholder="Contact Number" required autofocus pattern="[0-9+].{5,}" title="Valid Numbers Only"><br>
+            <textarea class="txtbox" style="min-height: 150px" placeholder="Message" name="msg" required autofocus></textarea><br>
+            <input type="submit" style="width: 10%;margin-top: 0.5%;min-width:100px;" class="txtbox" value="Submit">
+        </form>
+    </div>
+    <div id="contact-details">
+        <h2>Contact Details</h2>
+        <h3>Contact Address</h3>
+        <div id="contact-address">
+            <p>Room No. 327,328,<br>
+                Boys Hostel<br>
+                SVKM's NMIMS Shirpur Campus<br>
+                Shirpur, Babulde Bank of Tapi River<br>
+                Maharashtra<br>
+                India<br>
+            </p>
+        </div>
+        <h3>Contact Numbers</h3>
+        <div id="contact-number">
+        </div>
+    </div>
     </div>
 </div>
 </body>
