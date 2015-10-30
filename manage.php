@@ -17,7 +17,6 @@ $db=$db_config->connect();
     </script>
 </head>
 <body>
-<center>
 <?php
 
 if(!$_SESSION['loggedIn']){
@@ -93,6 +92,5 @@ $v_eventType=array('','BirthDay','Marriage','Break Up','Anniversary');
 <div id="side">
 <a href="index.html" style="text-decoration:none">Logout</a>
 </div>
-    </center>
 </body>
 </html>
