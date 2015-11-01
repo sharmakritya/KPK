@@ -10,7 +10,9 @@ $db=$db_config->connect();
     <script src="js/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#newEvent").click(function(){
+            $("#newEvent").click(function(e){
+                if( e.target != this )
+                    return;
                 $("#newEventCont").slideToggle();
             })
         })

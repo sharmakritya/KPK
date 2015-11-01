@@ -53,6 +53,7 @@ body{
 	border-top: 2px solid white;
 	margin-top: 5px;
 	display: none;
+	cursor: default;
 }
 .eventSubmit{
 	display: block;
