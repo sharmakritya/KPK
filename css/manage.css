@@ -4,12 +4,7 @@ body{
 	background-color:rgb(205,205,205);
 }
 #main{
-	float:left;
 	width: 100%;
-}
-#side{
-	float:right;
-	display:block;
 }
 .main-table td{
 	padding: 8px;
@@ -46,13 +41,17 @@ body{
 #newEvent{
 	cursor: pointer;
 	padding: 10px;
-	background-color: black;
+	background-color: rgb(19, 43, 85);
 	color: white;
 	border-radius: 8px;
+	margin-left: 10%;
+	width: 80%;
+	box-sizing: border-box;
+	font-size: larger;
 }
 #newEventCont{
+	border-top: 2px solid white;
 	margin-top: 5px;
-	padding: 5px;
 	display: none;
 }
 .eventSubmit{
