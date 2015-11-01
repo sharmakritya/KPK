@@ -14,7 +14,29 @@ $db=$db_config->connect();
                 if( e.target != this )
                     return;
                 $("#newEventCont").slideToggle();
-            })
+            });
+            $(".edit").click(function(){
+                $("#newEvent .text").text("Edit Event");
+                var child=$(this).parent().parent();
+                $("#editId").val(child.children(":nth-child(1)").attr("type"));
+                $("#type").val(child.children(":nth-child(2)").attr("type"));
+                $("#name").val(child.children(":nth-child(3)").text());
+                $("#description").val(child.children(":nth-child(4)").text());
+                $("#date").val(child.children(":nth-child(5)").text());
+                $("#newEventCont").slideDown();
+            });
+            $("#cancel").click(function(e){
+                $("#newEvent .text").text("New Event");
+                $("#newEventCont").slideUp();
+            });
+            $(".eventSubmit").click(function(){
+                $(this).fadeOut(1000);
+                clearTimeout(hide);
+            });
+            var hide=setTimeout(function(){
+                $(".eventSubmit").fadeOut(1000);
+                clearTimeout(hide);
+            },10000);
         })
     </script>
 </head>
@@ -37,10 +59,20 @@ $row=$result->fetch_assoc();
         $name=$_POST['name'];
         $description=$_POST['description'];
         $date=$_POST['date'];
-        $sql="INSERT INTO events
-              VALUES('','$userId','$eventType','$name','$description','$date')";
-        $db->query($sql);
-        echo '<div class="eventSubmit">New event successfully added.</div>';
+        $editId=$_POST['editId'];
+        if($editId==""){
+            $sql="INSERT INTO events
+                  VALUES('','$userId','$eventType','$name','$description','$date')";
+            $db->query($sql);
+            echo '<div class="eventSubmit">New event successfully added.</div>';
+        }
+        else{
+            $sql="UPDATE events
+            SET type='$eventType',name='$name',description='$description',date='$date'
+            WHERE id='$editId'";
+            $db->query($sql) or die($db->error);
+            echo '<div class="eventSubmit">Event successfully updated.</div>';
+        }
     }
     $sql="SELECT * FROM events WHERE userId='$userId'";
     $result=$db->query($sql);
@@ -60,25 +92,26 @@ $row=$result->fetch_assoc();
     $i=1;
     while($row=$result->fetch_assoc()){
         echo "<tr>
-        <td>".$i."</td>
-        <td>".$v_eventType[$row['type']]."</td>
+        <td type=\"".$row['id']."\">".$i."</td>
+        <td type=\"".$row['type']."\">".$v_eventType[$row['type']]."</td>
         <td>".$row['name']."</td>
         <td>".$row['description']."</td>
         <td>".$row['date']."</td>
-        <td><a href='newedit.php'>Edit</a> <a href='#'>Manage</a> <a href='#'>Delete</a></td>
+        <td><span class='edit'>Edit</span> <a href='#'>Manage</a> <a href='#'>Delete</a></td>
         </tr>";
         $i++;
     }
     ?>
 </table>
 <br>
-<div id="newEvent">New Event
+<div id="newEvent"><span class="text">New Event</span>
 <div id="newEventCont">
     <form method="post" action="manage.php">
+        <input type="hidden" id="editId" name="editId" value="" />
         <table>
             <tr>
-                <td><label for="Type">Event Type:</label></td>
-                <td><select id="Type" name="type" required>
+                <td><label for="type">Event Type:</label></td>
+                <td><select id="type" name="type" required>
                         <option value="">Select an Event Type..</option>
                         <option value="1">BirthDay</option>
                         <option value="2">Marriage</option>
@@ -87,8 +120,8 @@ $row=$result->fetch_assoc();
                     </select></td>
             </tr>
             <tr>
-                <td><label for="Name">Name:</label></td>
-                <td><input type="text" name="name" id="Name" required/></td>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" name="name" id="name" required/></td>
             </tr>
             <tr>
                 <td><label for="description">Description:</label></td>
@@ -100,7 +133,7 @@ $row=$result->fetch_assoc();
             </tr>
         </table>
         <br>
-        <input type="submit" value="Done"/>
+        <input type="submit" value="Done"/><button id="cancel" type="reset">Cancel</button>
     </form>
 </div>
 </div>
