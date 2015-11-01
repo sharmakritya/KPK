@@ -19,20 +19,33 @@ $db=$db_config->connect();
 <body>
 <?php
 
-if(!$_SESSION['loggedIn']){
+if(!isset($_SESSION['loggedIn'])){
     die("You are not logged in. Please log in.");
 }
 $userId=$_SESSION['userId'];
 $sql="SELECT * FROM users WHERE id='$userId'";
 $result=$db->query($sql);
 $row=$result->fetch_assoc();
-$sql="SELECT * FROM events WHERE userId='$userId'";
-$result=$db->query($sql);
-$v_eventType=array('','BirthDay','Marriage','Break Up','Anniversary');
 ?>
 <div id="main">
 <h2 align="center">Welcome <?php echo $row['firstName']." ".$row['lastName']; ?></h2>
-<table border="1px" class="main-table" align="center">
+    <?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $eventType=$_POST['type'];
+        $name=$_POST['name'];
+        $description=$_POST['description'];
+        $date=$_POST['date'];
+        $sql="INSERT INTO events
+              VALUES('','$userId','$eventType','$name','$description','$date')";
+        $db->query($sql);
+        echo '<div class="eventSubmit">New event successfully added.</div>';
+    }
+    $sql="SELECT * FROM events WHERE userId='$userId'";
+    $result=$db->query($sql);
+    $v_eventType=array('','BirthDay','Marriage','Break Up','Anniversary');
+
+    ?>
+<table class="main-table" align="center" width="80%">
 <tr>
 	<th>#</th>
     <th>Type</th>
@@ -50,7 +63,7 @@ $v_eventType=array('','BirthDay','Marriage','Break Up','Anniversary');
         <td>".$row['name']."</td>
         <td>".$row['description']."</td>
         <td>".$row['date']."</td>
-        <td><a href='newedit.php'>Edit</a> <a href='#'>Manage</a></td>
+        <td><a href='newedit.php'>Edit</a> <a href='#'>Manage</a> <a href='#'>Delete</a></td>
         </tr>";
         $i++;
     }
@@ -59,7 +72,7 @@ $v_eventType=array('','BirthDay','Marriage','Break Up','Anniversary');
 <br>
 <span id="newEvent">New Event</span>
     <div id="newEventCont">
-        <form method="post" action="">
+        <form method="post" action="manage.php">
             <table>
                 <tr>
                     <td><label for="Type">Event Type:</label></td>
@@ -73,7 +86,7 @@ $v_eventType=array('','BirthDay','Marriage','Break Up','Anniversary');
                 </tr>
                 <tr>
                     <td><label for="Name">Name:</label></td>
-                    <td><input type="text" name="Name" id="Name" required/></td>
+                    <td><input type="text" name="name" id="Name" required/></td>
                 </tr>
                 <tr>
                     <td><label for="description">Description:</label></td>
