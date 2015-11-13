@@ -16,10 +16,10 @@ class DB_config
 
     function __construct()
     {
-        $this->mysql_host = "localhost";
+        $this->mysql_host = "127.0.0.1";
         $this->mysql_database = "kpk";
         $this->mysql_user = "root";
-        $this->mysql_password = "";
+        $this->mysql_password = "root";
     }
 
     public function connect(){

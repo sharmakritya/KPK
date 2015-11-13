@@ -21,7 +21,7 @@ if($result->num_rows!=0){
 }
 else{
     $sql="INSERT INTO users
-          VALUES ('','$email','$password','$firstName','$lastName')";
+          VALUES (NULL,'$email','$password','$firstName','$lastName')";
     $db->query($sql);
     echo "Successfully registered. Login to continue.";
 }

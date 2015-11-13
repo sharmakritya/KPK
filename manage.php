@@ -62,8 +62,8 @@ $row=$result->fetch_assoc();
         $editId=$_POST['editId'];
         if($editId==""){
             $sql="INSERT INTO events
-                  VALUES('','$userId','$eventType','$name','$description','$date')";
-            $db->query($sql);
+                  VALUES(NULL,'$userId','$eventType','$name','$description','$date')";
+            $db->query($sql) or die($db->error);
             echo '<div class="eventSubmit">New event successfully added.</div>';
         }
         else{
