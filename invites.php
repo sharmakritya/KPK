@@ -50,19 +50,20 @@ $eventId=$_GET['eventId'];
             </tr>
             <?php
 			$sql="SELECT * FROM invites WHERE eventId='$eventId'";
-    $result=$db->query($sql);
-	$v_Response=array('Not Attending','Attending','Not Sure');
-    $i=1;
-    while($row=$result->fetch_assoc()){
-        echo "<tr>
-        <td type=\"".$row['id']."\">".$i."</td>
-        <td>".$row['name']."</td>
-        <td>".$row['emailId']."</td>
-		<td>".$v_Response[$row['response']]."</td>
-        </tr>";
-        $i++;
-    }
-    ?>
+            $result=$db->query($sql);
+            $v_Response=array('Not Attending','Attending','Not Sure');
+            $v_Response['']="";
+            $i=1;
+            while($row=$result->fetch_assoc()){
+                echo "<tr>
+                <td type=\"".$row['id']."\">".$i."</td>
+                <td>".$row['name']."</td>
+                <td>".$row['emailId']."</td>
+                <td>".$v_Response[$row['response']]."</td>
+                </tr>";
+                $i++;
+            }
+            ?>
         </table>
 </div>
 </body>
