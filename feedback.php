@@ -13,14 +13,20 @@ $eventId=$_GET['eventId'];
 <div id="left">
 <img id="bar_logo" src="images/logo.jpg"/>
 <br>
-
-<a href="invites.php">Invites</a>
-<br>
-<a href="feedback.php">Feedback</a>
-<br>
-<a href="edit.php">Edit</a>
+    <br>
+    <a href="invites.php?eventId=<?php echo $eventId; ?>">Invites</a>
+    <br>
+    <a href="feedback.php?eventId=<?php echo $eventId; ?>">Feedback</a>
+    <br>
+    <a href="edit.php?eventId=<?php echo $eventId; ?>">Edit</a>
 </div>
 <div id="right">
+    <?php
+    $sql="SELECT * FROM events WHERE id='$eventId'";
+    $result=$db->query($sql);
+    $row=$result->fetch_assoc();
+    echo "<h1>".$row['name']."</h1>";
+    ?>
 	<h1>Feedback</h1>
             <table  class="main-table">
             <tr>
