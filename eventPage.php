@@ -1,8 +1,18 @@
+<?php
+session_start();
+require_once('config.php');
+$db_config=new DB_config();
+$db=$db_config->connect();
+$eventId=$_GET['eventId'];
+$sql="SELECT * FROM events WHERE id='$eventId'";
+$result=$db->query($sql);
+$row=$result->fetch_assoc();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Event Name</title>
+<title><?php echo $row['name'] ?></title>
 <link href="css/eventPage.css" type="text/css" rel="stylesheet"/>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -88,7 +98,7 @@
 </head>
 <body>
 <div class="bgdiv">
-	<div id="eventName">Event Name</div>
+	<div id="eventName"><?php echo $row['name'] ?></div>
 	<div id="menu">
 		<ul>
 			<li id="link-1">Story</li>
