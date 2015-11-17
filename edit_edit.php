@@ -12,6 +12,15 @@ $result=$db->query($sql);
 $row=$result->fetch_assoc();
 
 $moduleTypeId=$row['moduleTypeId'];
-if($moduleTypeId==1) {
-
-}
+//if($moduleTypeId==1) {
+    $storyEdit=$_POST['storyEdit'];
+$sql="UPDATE modules
+SET title='$moduleTitle'
+WHERE id='$moduleId'";
+$db->query($sql) or die($db->error);;
+$sql="UPDATE moduledata
+SET datao='$storyEdit'
+WHERE moduleId='$moduleId'";
+$db->query($sql) or die($db->error);
+echo "Successfully updated.";
+//}

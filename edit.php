@@ -44,9 +44,9 @@ Choose a Module to edit:<br><br>
             <input type='hidden' name='moduleId' value='".$moduleId."' />
             <input type='text' name='moduleTitle' required value='".$row['title']."' /><br>";
         $moduleTypeId=$row['moduleTypeId'];
-        if($moduleTypeId==1){
+        //if($moduleTypeId==1){
             echo "<textarea name='storyEdit' required></textarea><br>";
-        }
+        //}
         echo "<input type='submit' value='Save Changes' />
               </form>";
     }
