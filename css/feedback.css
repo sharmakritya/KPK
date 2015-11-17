@@ -37,3 +37,38 @@ a.active{
 	margin:10%;
 	
 }
+.main-table td{
+	padding: 8px;
+}
+.main-table tr th{
+	background-color: rgb(19, 43, 85);
+	padding: 10px;
+	font-size: large;
+	color: white;
+}
+.main-table tr:nth-child(even) td {
+	background: #ffffff;
+	color: black;
+}
+.main-table tr:nth-child(odd):not(:first-of-type) td {
+	background-color: rgba(19, 72, 127, 1);
+	color: lightgrey;
+}
+.main-table tr:nth-child(odd) a{
+	color: lightgrey;
+}
+.main-table tr:nth-child(even) a {
+	color: black;
+}
+.main-table th:first-of-type{
+	border-top-left-radius: 30px;
+}
+.main-table th:last-of-type{
+	border-top-right-radius: 30px;
+}
+.main-table tr:last-of-type td:last-of-type{
+	border-bottom-right-radius: 30px;
+}
+.main-table tr:last-of-type td:first-of-type{
+	border-bottom-left-radius: 30px;
+}

@@ -62,8 +62,8 @@ $row=$result->fetch_assoc();
         $editId=$_POST['editId'];
         if($editId==""){
             $sql="INSERT INTO events
-                  VALUES('','$userId','$eventType','$name','$description','$date')";
-            $db->query($sql);
+                  VALUES(NULL,'$userId','$eventType','$name','$description','$date')";
+            $db->query($sql) or die($db->error);
             echo '<div class="eventSubmit">New event successfully added.</div>';
         }
         else{
@@ -97,7 +97,7 @@ $row=$result->fetch_assoc();
         <td>".$row['name']."</td>
         <td>".$row['description']."</td>
         <td>".$row['date']."</td>
-        <td><span class='edit'>Edit</span> <a href='#'>Manage</a> <a href='#'>Delete</a></td>
+        <td><span class='edit'>Edit</span> <a href='event_manage.php?eventId=".$row['id']."'>Manage</a> <a href='#'>Delete</a></td>
         </tr>";
         $i++;
     }
