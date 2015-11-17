@@ -97,7 +97,7 @@ $row=$result->fetch_assoc();
         <td>".$row['name']."</td>
         <td>".$row['description']."</td>
         <td>".$row['date']."</td>
-        <td><span class='edit'>Edit</span> <a href='#'>Manage</a> <a href='#'>Delete</a></td>
+        <td><span class='edit'>Edit</span> <a href='event_manage.php?eventId=".$row['id']."'>Manage</a> <a href='#'>Delete</a></td>
         </tr>";
         $i++;
     }
