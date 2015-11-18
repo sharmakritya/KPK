@@ -15,23 +15,22 @@ body{
 	width:90%;
 	float:right;
 }
-a:link, a:visited {
-    display:block;
-    font-weight: bold;
-    color: #ffffff;
-    border-radius: 20px;
-    width:auto;
-    text-align: center;
-    padding: 4px;
-    text-decoration: none;
+#left a:link,#left a:visited {
+	display:block;
+	font-weight: bold;
+	color: #ffffff;
+	border-radius: 20px;
+	width:auto;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+}
+#left a:hover{
+	color:#333;
 }
 
-a:hover{
-    color:#333;
-}
-
-a.active{
-    background-color: #7A991A;
+#left a.active{
+	background-color: #7A991A;
 }
 #bar_logo{
 	width:80%;

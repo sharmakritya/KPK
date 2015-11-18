@@ -14,7 +14,11 @@ if($result->num_rows!=0){
 else{
     $sql="INSERT INTO invites
           VALUES (NULL,'$eventId','$name','$email',NULL)";
+<<<<<<< HEAD
     $db->query($sql);
+=======
+    $db->query($sql) or die($db->error);
+>>>>>>> origin/master
     echo "Successfully invited <a href='invites.php?eventId=$eventId'>Go Back.</a>";
 }
 ?>
